@@ -1,0 +1,28 @@
+const App = ()=>{
+ // The API URL.
+ const APIurl = 'https://api.github.com/users';
+ 
+// useState.
+ const [users, setUsers] = useState([]);
+ 
+// useEffect.
+ useEffect(()=>{
+  fetch(APIurl)
+   .then(res => res.json())
+   .then(data => setUsers(data));
+},[]);
+return(
+<>
+ <ul>
+ {users.map(user => (
+  <li key={user.id}>{user.login}</li>
+ ))}
+ </ul>
+</>
+)
+}
+
+    -Programme for knowing the working of 'useEffect()' & 'useState()' in react js with async await function to get the data from API.
+
+Hooks - useEffect(),useState()
+API   - fetch() with async/await 
